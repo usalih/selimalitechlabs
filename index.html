@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALIMALITECH LABS - Tech Hub in Gombe, Nigeria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-forest: #013220;
+            --emerald: #50C878;
+            --neon-mint: #98FF98;
+            --white: #FFFFFF;
+            --charcoal: #1A1A1A;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(1, 50, 32, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(80, 200, 120, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--emerald), var(--neon-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--neon-mint);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: 0.3s ease;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 60px;
+            min-height: calc(100vh - 60px);
+            background: linear-gradient(135deg, var(--deep-forest) 0%, #024d35 50%, var(--emerald) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(152, 255, 152, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(80, 200, 120, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--emerald), var(--neon-mint));
+            color: var(--deep-forest);
+            box-shadow: 0 4px 15px rgba(80, 200, 120, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(80, 200, 120, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid var(--neon-mint);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--deep-forest);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--emerald), var(--neon-mint));
+            border-radius: 2px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: linear-gradient(135deg, rgba(80, 200, 120, 0.1), rgba(152, 255, 152, 0.1));
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--emerald);
+        }
+
+        .highlight-item strong {
+            color: var(--emerald);
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--light-gray) 0%, rgba(80, 200, 120, 0.05) 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(1, 50, 32, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(80, 200, 120, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--emerald), var(--neon-mint));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(80, 200, 120, 0.15);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--emerald);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--deep-forest);
+        }
+
+        .service-card p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ===== WALK-IN ADVANTAGE SECTION ===== */
+        .walk-in {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--deep-forest) 0%, #024d35 50%, var(--emerald) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .walk-in::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(152, 255, 152, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            right: -100px;
+            transform: translateY(-50%);
+        }
+
+        .walk-in h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .walk-in-content {
+            max-width: 600px;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .community-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .community-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(152, 255, 152, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .community-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--neon-mint);
+        }
+
+        .community-item p {
+            font-weight: 600;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--deep-forest);
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: var(--dark-gray);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-info i {
+            color: var(--emerald);
+            font-size: 1.3rem;
+            min-width: 25px;
+        }
+
+        /* ===== GLASSMORPHISM CARD ===== */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(1, 50, 32, 0.1);
+            background: linear-gradient(135deg, rgba(80, 200, 120, 0.15), rgba(152, 255, 152, 0.1));
+        }
+
+        .glass-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--deep-forest);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .glass-card form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .glass-card input,
+        .glass-card textarea {
+            padding: 0.8rem;
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card input:focus,
+        .glass-card textarea:focus {
+            outline: none;
+            background: var(--white);
+            border-color: var(--emerald);
+            box-shadow: 0 0 0 3px rgba(80, 200, 120, 0.1);
+        }
+
+        .glass-card textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--deep-forest);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(80, 200, 120, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--neon-mint);
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(1, 50, 32, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about {
+                padding: 3rem 1.5rem;
+            }
+
+            .services {
+                padding: 3rem 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .walk-in {
+                padding: 3rem 1.5rem;
+            }
+
+            .walk-in h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                margin-top: 60px;
+                min-height: calc(100vh - 60px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title::after {
+                width: 40px;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header>
+        <nav>
+            <div class="logo">SALIMALITECH LABS</div>
+            <ul id="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#walkin">Walk-In</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>Empowering Gombe Through Global Innovation</h1>
+            <p>SALIMALITECH LABS is a world-class workspace and tech hub designed for the thinkers, creators, and leaders of tomorrow. Walk in today and step into the global tech ecosystem.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book a Desk</button>
+                <button class="btn btn-secondary" onclick="alert('Upcoming seminars schedule coming soon!')">Upcoming Seminars</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <h2 class="section-title fade-in">About Us</h2>
+            <p class="about-text fade-in">
+                We aren't just an office; we are a movement. Located in the heart of Gombe, SALIMALITECH LABS provides a state-of-the-art walk-in environment where the community can access high-speed internet, mentorship, and a collaborative spirit. We bridge the gap between local talent and global opportunities.
+            </p>
+            <div class="about-highlights">
+                <div class="highlight-item fade-in">
+                    <strong>Our Mission:</strong> Democratize access to world-class technology resources for the Gombe community.
+                </div>
+                <div class="highlight-item fade-in">
+                    <strong>Our Vision:</strong> Position Gombe as a hub of technological excellence and innovation.
+                </div>
+                <div class="highlight-item fade-in">
+                    <strong>Our Values:</strong> Community, Excellence, Collaboration, and Global Connectivity.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h3>Global Workspace</h3>
+                    <p>A premium, ergonomic environment with 24/7 power and high-speed fiber internet. Perfect for freelancers and remote developers working on projects that matter.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-chalkboard-user service-icon"></i>
+                    <h3>Tech Seminars</h3>
+                    <p>Regular industry-led workshops covering AI, Software Engineering, and Digital Marketing. Learn from experts and stay ahead of the curve in the rapidly evolving tech landscape.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-handshake service-icon"></i>
+                    <h3>Community Events</h3>
+                    <p>Networking meetups and hackathons designed to foster local innovation and partnership. Build connections with like-minded creators and entrepreneurs in Gombe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WALK-IN ADVANTAGE SECTION ===== -->
+    <section class="walk-in" id="walkin">
+        <div class="section-container">
+            <h2 class="fade-in">The "Walk-In" Advantage</h2>
+            <div class="walk-in-content fade-in">
+                <p>Technology is for everyone. Our doors are open to the Gombe community. Whether you are a student starting your journey or a professional scaling your business, our lab is your home for growth. No membership barriers—just pure innovation and collaboration.</p>
+            </div>
+            <div class="community-list">
+                <div class="community-item fade-in">
+                    <i class="fas fa-graduation-cap"></i>
+                    <p>For Students</p>
+                </div>
+                <div class="community-item fade-in">
+                    <i class="fas fa-briefcase"></i>
+                    <p>For Professionals</p>
+                </div>
+                <div class="community-item fade-in">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>For Innovators</p>
+                </div>
+                <div class="community-item fade-in">
+                    <i class="fas fa-rocket"></i>
+                    <p>For Startups</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h2>Get In Touch</h2>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        SALIMALITECH LABS, Gombe, Nigeria (NG)
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        +234 902 264 4650
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:admin@salimalitech.com" style="color: var(--emerald); text-decoration: none;">admin@salimalitech.com</a>
+                    </p>
+                    <p style="margin-top: 2rem; font-style: italic; color: var(--emerald);">
+                        "Your gateway to the digital world."
+                    </p>
+                </div>
+                <div class="glass-card fade-in">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-tagline">Your gateway to the digital world</p>
+            <p>&copy; 2026 SALIMALITECH LABS. All rights reserved. | Gombe, Nigeria</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MOBILE MENU TOGGLE =====
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // ===== SMOOTH SCROLL ENHANCEMENT =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // ===== FORM SUBMISSION =====
+        document.querySelector('.glass-card form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
